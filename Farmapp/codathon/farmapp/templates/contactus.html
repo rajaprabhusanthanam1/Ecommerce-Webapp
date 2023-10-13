@@ -1,0 +1,543 @@
+<html>
+    <head>
+        <title>Farm Touch</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://use.fontawesome.com/da5c77614e.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
+        <style>
+            *
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+section
+{
+    width: 100%;
+    height: 100vh;
+  }
+  section nav
+  {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    height: 74px;
+    right: 0;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 1000;
+  }
+  section nav .logo
+  {
+    font-size: 25px;
+    cursor:pointer;
+    margin: 7px 0;
+  }
+  b
+  {
+    font-size: 30px;
+    color:lawngreen;
+  }
+
+  section nav ul{
+    list-style: none;
+  }
+  section nav ul li{
+    display: inline-block;
+    margin: 0  15px;
+  }
+  section nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 15px;
+    transition: 0.2s;
+  }
+  section nav ul a::after
+  {
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color:lawngreen;
+    display: block;
+    transition: 0.4s linear;
+  }
+  section nav ul a:hover::after{
+    width: 100%;
+  }
+  section nav ul a:hover{
+    color: lawngreen;
+  }
+  ul li ul.dropdown li{
+    display:block;
+    }
+    ul li ul.dropdown{
+    width:164px;
+    background-color:white;
+    position:absolute;
+    z-index:999;
+    display:none;
+    }
+    
+    ul li:hover ul.dropdown{
+    display:block;
+    }
+  section nav .icon i{
+    font-size: 18px;
+    margin: 0 7px;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+  section nav .icon i:hover{
+    color: lawngreen;
+  }
+
+            .product{
+              width: 100%;
+              padding: 70px 0;
+                      
+              }
+              .product h1{
+                font-size: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 30px;
+                top:10px;
+              }
+              .product h4{
+                font-size: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 30px;
+                top:10px;
+              }
+              .product h1 span{
+                color: lawngreen;
+                margin-left: 15px;
+                font-family: serif;
+                font-style:oblique;
+              }
+              .product .cropbox{
+                width: 95%;
+                margin:0 auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-gap: 15px;
+              }
+              .product .cropbox .cropcard{
+                width: 325px;
+                height: 480px;
+                padding-top: 10px;
+                margin-bottom: 20px;
+                box-shadow: 0 0 10px rgb(0,0,0,0.2);
+              }
+              .product .cropbox .cropcard .cropimage img{
+                width: 300px;
+                height: 200px;
+                margin: 0 auto;
+                overflow: hidden;
+              }
+              .product .cropbox .cropcard .cropimage img{
+                width: 100%;
+                height: 50%;
+                padding: 10px;
+                object-fit: cover;
+                object-position: center ;
+                transition: 0.3s;
+              }
+              .product .cropbox .cropcard .cropimage:hover img{
+                transform: scale(1.05);
+        
+              }
+              .product .cropbox .cropcard .smallcard
+              {
+                width: 45px;
+                height: 45px;
+                float: right;
+                position: relative;
+                top: -240px;
+                right: -8px;
+                opacity: 0;
+                border-radius: 7px;
+                transition: 0.3s;
+              }
+              .product .cropbox .cropcard:hover .smallcard{
+                position: relative;
+                top: -240px;
+                right: 20px;
+                opacity: 1;
+                
+              }
+              .product .cropbox .cropcard .smallcard i{
+                font-size: 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 50px;
+                color: #000;
+                transition: 0.2s;
+              }
+              .product .cropbox .cropcard .smallcard i:hover{
+                color: lawngreen;
+              }
+              .product .cropbox .cropcard .cropinfo h2{
+                /* width: 60%; */
+                text-align: center;
+                margin: 10px;
+                font-size: 25px;
+                color: lawngreen;
+              }
+              .product .cropbox .cropcard .cropinfo p{
+                text-align: center;
+                margin: 10px;
+                line-height: 21px;
+              }
+              .product .cropbox .cropcard .cropinfo h3{
+                text-align: center;
+                margin-top: 10px;
+                font-size:15px ;
+                margin-bottom: 10px;
+                
+              }
+              .product .cropbox .cropcard .cropinfo .cropbtn{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                color: #000;
+                padding: 8px 10px;
+                margin: 0 80px;
+                background-color: lawngreen;
+                transition: 0.2s;
+              }
+              .show-cart li {
+  display: flex;
+}
+.card {
+  margin-bottom: 20px;
+}
+.card-img-top {
+  width: 200px;
+  height: 200px;
+  align-self: center;
+}
+
+        </style>
+    </head>
+    <body>
+        <section id="Home" style="height: 78vh;">
+            <nav>
+                <div id="logo">
+                  <logo>
+                    <img style="height: 74px;"  src="C:\Users\Pravin\OneDrive\Desktop\farmtouch\assets\Group 1.png" alt="">
+    
+                </logo>
+                </div>
+                <ul>
+                    <li><a href="project1.html">Home</a></li>
+                    <li><a href="#About">About</a></li>
+                    <li><a href="#MainProduct">Product</a>
+                    <ul class="dropdown">
+                        <li><a href="project1.html">Yearly Products</li></a>
+                        <li><a href="summercrops.html">Summer Crops</li></a>
+                        <li><a href="project 2.html">Winter Crops</li></a>
+                       
+                        </ul></li>
+                    <!-- <li><a href="#Order">Order</a></li> -->
+                    <li><a href="#Contact">Contact</a></li>
+                </ul>
+                <div class="icon">
+                    <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <!-- <i class="fa fa-heart" aria-hidden="true"></i> -->
+                    <button type="button" data-toggle="modal" data-target="#cart" style="border: unset; background-color: white;">   <i class="fa fa-shopping-cart" aria-hidden="true"></i>(<span class="total-count"></span>)</button>
+                    <!-- <div class="row">
+                      <div class="col">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">Cart (<span class="total-count"></span>)</button><button class="clear-cart btn btn-danger">Clear Cart</button></div>
+                  </div> -->
+                </div>
+                </nav>
+              </section>
+       
+        <div style="
+        position: absolute;
+        top: 14%;
+    ">
+         <p>Address</p>
+          <p >New No. 17, AP 328, 39th Street,</p><p>8th Sector, K.K. Nagar West,</p> <p>Chennai - 600 78</p>
+          <p>Tel : +045682-45654</p>
+          <p>Fax : 044 123 4567</p>
+          <p>Email : Formtouch@gmail.com</p>
+        </div>
+           <!-- FOOTER START -->
+      <div class="footer" >
+        <div class="contain">
+        <div class="col">
+          <h1>Company</h1>
+          <ul>
+            <li>About</li>
+            <li>Mission</li>
+            <li>Services</li>
+            <li>Social</li>
+            <li>Get in touch</li>
+          </ul>
+        </div>
+        <!-- <div class="col">
+          <h1>Accounts</h1>
+          <ul>
+            <li>About</li>
+            <li>Mission</li>
+            <li>Services</li>
+            <li>Social</li>
+          </ul>
+        </div> -->
+        <div class="col">
+          <h1>Support</h1>
+          <ul>
+            <li>Contact us</li>
+            <li>Web chat</li>
+          </ul>
+        </div>
+        <div class="col social">
+          <h1>Social</h1>
+          <ul>
+            <li><img src="./assets/logo-facebookpng-32202.png" width="32" style="width: 32px;"></li>
+            <li><img src="./assets/instagram-icon_1057-2227.avif" width="32" style="width: 32px;"></li>
+            <li><img src="./assets/twitter-x-logo-42554.png" width="32" style="width: 32px;"></li>
+          </ul>
+        </div>
+        <div class="col social" style="float: right;">
+            <h1>Address</h1>
+           <p style="color: #999999;width: 245px;">New No. 17, AP 328, 39th Street,</br> 8th Sector, K.K. Nagar West,</br> Chennai - 600 78</p>
+          </div>
+      <div class="clearfix"></div>
+      </div>
+      </div>
+      <!-- END OF FOOTER -->
+        <script>
+               // ************************************************
+// Shopping Cart API
+// ************************************************
+
+var shoppingCart = (function() {
+  // =============================
+  // Private methods and propeties
+  // =============================
+  cart = [];
+  
+  // Constructor
+  function Item(name, price, count) {
+    this.name = name;
+    this.price = price;
+    this.count = count;
+  }
+  
+  // Save cart
+  function saveCart() {
+    sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
+  }
+  
+    // Load cart
+  function loadCart() {
+    cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
+  }
+  if (sessionStorage.getItem("shoppingCart") != null) {
+    loadCart();
+  }
+  
+
+  // =============================
+  // Public methods and propeties
+  // =============================
+  var obj = {};
+  
+  // Add to cart
+  obj.addItemToCart = function(name, price, count) {
+    for(var item in cart) {
+      if(cart[item].name === name) {
+        cart[item].count ++;
+        saveCart();
+        return;
+      }
+    }
+    var item = new Item(name, price, count);
+    cart.push(item);
+    saveCart();
+  }
+  // Set count from item
+  obj.setCountForItem = function(name, count) {
+    for(var i in cart) {
+      if (cart[i].name === name) {
+        cart[i].count = count;
+        break;
+      }
+    }
+  };
+  // Remove item from cart
+  obj.removeItemFromCart = function(name) {
+      for(var item in cart) {
+        if(cart[item].name === name) {
+          cart[item].count --;
+          if(cart[item].count === 0) {
+            cart.splice(item, 1);
+          }
+          break;
+        }
+    }
+    saveCart();
+  }
+
+  // Remove all items from cart
+  obj.removeItemFromCartAll = function(name) {
+    for(var item in cart) {
+      if(cart[item].name === name) {
+        cart.splice(item, 1);
+        break;
+      }
+    }
+    saveCart();
+  }
+
+  // Clear cart
+  obj.clearCart = function() {
+    cart = [];
+    saveCart();
+  }
+
+  // Count cart 
+  obj.totalCount = function() {
+    var totalCount = 0;
+    for(var item in cart) {
+      totalCount += cart[item].count;
+    }
+    return totalCount;
+  }
+
+  // Total cart
+  obj.totalCart = function() {
+    var totalCart = 0;
+    for(var item in cart) {
+      totalCart += cart[item].price * cart[item].count;
+    }
+    return Number(totalCart.toFixed(2));
+  }
+
+  // List cart
+  obj.listCart = function() {
+    var cartCopy = [];
+    for(i in cart) {
+      item = cart[i];
+      itemCopy = {};
+      for(p in item) {
+        itemCopy[p] = item[p];
+
+      }
+      itemCopy.total = Number(item.price * item.count).toFixed(2);
+      cartCopy.push(itemCopy)
+    }
+    return cartCopy;
+  }
+
+  // cart : Array
+  // Item : Object/Class
+  // addItemToCart : Function
+  // removeItemFromCart : Function
+  // removeItemFromCartAll : Function
+  // clearCart : Function
+  // countCart : Function
+  // totalCart : Function
+  // listCart : Function
+  // saveCart : Function
+  // loadCart : Function
+  return obj;
+})();
+
+
+// *****************************************
+// Triggers / Events
+// ***************************************** 
+// Add item
+$('.add-to-cart').click(function(event) {
+  event.preventDefault();
+  var name = $(this).data('name');
+  var price = Number($(this).data('price'));
+  shoppingCart.addItemToCart(name, price, 1);
+  displayCart();
+});
+
+// Clear items
+$('.clear-cart').click(function() {
+  shoppingCart.clearCart();
+  displayCart();
+});
+
+
+function displayCart() {
+  var cartArray = shoppingCart.listCart();
+  var output = "";
+  for(var i in cartArray) {
+    output += "<tr>"
+      + "<td>" + cartArray[i].name + "</td>" 
+      + "<td>(" + cartArray[i].price + ")</td>"
+      + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
+      + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
+      + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
+      + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
+      + " = " 
+      + "<td>" + cartArray[i].total + "</td>" 
+      +  "</tr>";
+  }
+  $('.show-cart').html(output);
+  $('.total-cart').html(shoppingCart.totalCart());
+  $('.total-count').html(shoppingCart.totalCount());
+}
+
+// Delete item button
+
+$('.show-cart').on("click", ".delete-item", function(event) {
+  var name = $(this).data('name')
+  shoppingCart.removeItemFromCartAll(name);
+  displayCart();
+})
+
+
+// -1
+$('.show-cart').on("click", ".minus-item", function(event) {
+  var name = $(this).data('name')
+  shoppingCart.removeItemFromCart(name);
+  displayCart();
+})
+// +1
+$('.show-cart').on("click", ".plus-item", function(event) {
+  var name = $(this).data('name')
+  shoppingCart.addItemToCart(name);
+  displayCart();
+})
+
+// Item count input
+$('.show-cart').on("change", ".item-count", function(event) {
+   var name = $(this).data('name');
+   var count = Number($(this).val());
+  shoppingCart.setCountForItem(name, count);
+  displayCart();
+});
+
+displayCart();
+
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+      
+    </body>
+</html>
